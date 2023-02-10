@@ -7,25 +7,24 @@ const [counter, setCounter] = useState(1);
 
 const add = () => {
   setCounter(counter+1);
-  console.log(counter);
 };
 
 const subs = () => {
   setCounter(counter-1);
-  console.log(counter);
 };
 
-
-
+const progress = ((counter - 1) / 3) * 100;
+  
   return (
-    <div>
-        
+    <>
+        <title>Progress Bar</title>
+        <h1>Progress Bar</h1>
           <div className="container">
             <div className="progress-container" >
-              <div className="progress" id="progress"></div>
-              <div className={counter===1 ? "circle active" : "circle"}>1</div>
-              <div className={counter===2 ? "circle active" : "circle"}>2</div>
-              <div className={counter===3 ? "circle active" : "circle"}>3</div>
+              <div className="progress" id="progress" style={ { width: `${progress}%` } } ></div>
+              <div className={counter >= 1 ? "circle active" : "circle"}>1</div>
+              <div className={counter >=2 ? "circle active" : "circle"}>2</div>
+              <div className={counter >=3 ? "circle active" : "circle"}>3</div>
               <div className={counter===4 ? "circle active" : "circle"}>4</div>
             </div>
 
@@ -34,7 +33,7 @@ const subs = () => {
 
           </div>
           
-    </div>
+    </>
     )
 }
 
